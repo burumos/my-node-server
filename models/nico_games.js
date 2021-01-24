@@ -14,10 +14,13 @@ const fillable = [
 ];
 
 nicoGames.fetchAll = async () => {
-    const list = await new Promise((resolve, reject) => db.all('SELECT * FROM ' + tableName, (err, rows) => {
-        if (err) reject(err);
-        resolve(rows);
-    }));
+    const sql = `SELECT * FROM ${tableName} ORDER BY startTime DESC`
+    const list = await new Promise((resolve, reject) => db.all(sql,
+        (err, rows) => {
+            if (err) reject(err);
+            resolve(rows);
+        }
+    ));
 
     return list;
 }

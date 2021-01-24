@@ -88,14 +88,14 @@ nicoService.fetchVocaloid = async (dateString) => {
     return data;
 }
 
-nicoService.fetchByKeyword = async (keyword, limit=5) => {
+nicoService.fetchByKeyword = async (keyword, limit=5, MinimumView=1000) => {
     const fromDate = dayjs().startOf('date').add(-5, 'day').startOf('day').toISOString();
     const url = getUrl(keyword, limit, {
         startTime: {
             gte: fromDate,
         },
         viewCounter: {
-            gte: 300,
+            gte: MinimumView,
         }
     });
     const options = { url, method: 'GET', json: true};
