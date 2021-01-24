@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+  h1= title
+  div
+    ul.list
+      li.item
+          a(href='/nico/games') games
+      li.item
+          a(href='/nico/vocaloid') vocaloid
+
+  div
+    form.selectDate(method='get', action='')
+      select#year(name='year')
+      select#month(name='month')
+      select#day(name='day')
+      input(type='submit', name='submit', value='画面更新')
+      input#prevDate(type='button', value='prev')
+      input#nextDate(type='button' value='next')
+
+  div.table
+    div.row
+      div.column.thumbnail thumbnail
+      div.column.title title
+      div.column.viewCounter viewCounter
+      div.column.startTime startTime
+      dav.column.tags tags
+    each row in list
+      div.row
+        div.column.thumbnail
+          a(href= row.url, target='_blank')
+            img(src= row.thumbnailUrl)
+        div.column.title
+          a(href= row.url, target='_blank')= row.title
+        div.column.viewCounter= row.viewCounter
+        div.column.startTime= row.startTime
+        div.column.tags= row.tags
+
+

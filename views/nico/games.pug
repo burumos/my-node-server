@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+  h1= title
+  div
+    ul.list
+      li.item
+          a(href='/nico/vocaloid') vocaloid
+      li.item
+          a(href='/nico/utau') utau
+
+  div.table
+    div.row
+      div.column.thumbnail thumbnail
+      div.column.title title
+      div.column.viewCounter viewCounter
+      div.column.startTime startTime
+      dav.column.tags tags
+    each row in list
+      div.row
+        div.column.thumbnail
+          a(href= row.url, target='_blank')
+            img(src= row.thumbnailUrl)
+        div.column.title
+          a(href= row.url, target='_blank')= row.title
+        div.column.viewCounter= row.viewCounter
+        div.column.startTime= row.startTime
+        div.column.tags= row.tags
+
+

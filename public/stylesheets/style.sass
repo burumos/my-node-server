@@ -1,0 +1,44 @@
+*
+  box-sizing: inherit
+
+body
+  padding: 50px
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif
+  box-sizing: border-box
+
+a
+  color: #00B7FF
+
+.list
+  .item
+    font-size: 1.3em
+    margin-bottom: 0.2em
+
+.table
+  display: grid
+  border-top: 1px solid
+  border-left: 1px solid
+
+  .row
+    display: grid
+    border-bottom: 1px solid
+    grid-template-columns: 141px 3fr 1fr 1fr 2fr
+
+    .column
+      border-right: 1px solid
+      padding: 5px
+
+      &.thumbail
+      &.title
+      &.viewCounter
+      &.tags
+        font-size: 0.6em
+
+form.selectDate
+  margin: 10px 0
+  select
+    font-size: 1.5em
+    margin-right: 10px
+  input[type='submit'], input[type='button']
+    height: 3em
+    margin-right: 0.7em
