@@ -20,6 +20,8 @@ async function process() {
     data = data.concat(await nicoService.fetchByKeyword('cities:skylines', 5, 1000));
     await wait(500);
     data = data.concat(await nicoService.fetchByKeyword('biim', 10, 1000));
+    await wait(500);
+    data = data.concat(await nicoService.fetchByKeyword('steam', 20, 300));
 
     data = data.sort((r1, r2) => {
         return r1.startTime >= r2.startTime ? -1 : 1
