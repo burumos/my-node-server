@@ -41,7 +41,7 @@ const nicoService = function() {}
 nicoService.fetchUtau = async (dateString) => {
     const fromDate = dayjs(dateString).startOf('day').toISOString();
     const toDate = dayjs(dateString).endOf('day').toISOString();
-    const url = getUrl('UTAU', 10, {
+    const url = getUrl('UTAU -式人力 -fate　-ランキング', 10, {
         startTime: {
             gte: fromDate,
             lte: toDate,
