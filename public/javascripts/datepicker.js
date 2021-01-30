@@ -24,6 +24,19 @@ function setDayOptions(selectedDay) {
     setOptions(day, _.range(1, dayEnd.date() + 1), selectedDay);
 }
 
+function paramDate() {
+    const url = new URL(location.href);
+    const searchParams = url.searchParams;
+    if (searchParams.get(year.name)) {
+        let dayObj = dayjs();
+        dayObj = dayObj.year(searchParams.get(year.name))
+            .month(Number(searchParams.get(month.name)) - 1)
+            .date(searchParams.get(day.name))
+        return dayObj;
+    }
+    return null;
+}
+
 if (year) {
 
     const searchParams = (new URL(location.href)).searchParams;
@@ -45,14 +58,7 @@ if (year) {
     })
 
     document.getElementById('nextDate').addEventListener('click', () => {
-        const url = new URL(location.href);
-        const searchParams = url.searchParams;
-        let dayObj = dayjs();
-        if (searchParams.get(year.name)) {
-            dayObj = dayObj.year(searchParams.get(year.name))
-                .month(searchParams.get(month.name + 1))
-                .date(searchParams.get(day.name))
-        }
+        const dayObj = paramDate() || dayjs();
         dayObj = dayObj.add(1, 'day');
         searchParams.set(year.name, dayObj.year())
         searchParams.set(month.name, dayObj.month() + 1);
@@ -61,18 +67,18 @@ if (year) {
     })
 
     document.getElementById('prevDate').addEventListener('click', () => {
-        const url = new URL(location.href);
-        const searchParams = url.searchParams;
-        let dayObj = dayjs();
-        if (searchParams.get(year.name)) {
-            dayObj = dayObj.year(searchParams.get(year.name))
-                .month(searchParams.get(month.name + 1))
-                .date(searchParams.get(day.name))
-        }
+        const dayObj = paramDate() || dayjs();
         dayObj = dayObj.add(-1, 'day');
         searchParams.set(year.name, dayObj.year())
         searchParams.set(month.name, dayObj.month() + 1);
         searchParams.set(day.name, dayObj.date());
         location.href = url.toString();
-    })
+    });
+
+    const todayElem = document.getElementById('today-display');
+    if (todayElem) {
+        const dayObj = paramDate() || dayjs();
+        todayElem.innerText = dayObj.format('YYYY/MM/DD')
+        console.log(todayElem.innerText)
+    }
 }
