@@ -58,8 +58,10 @@ if (year) {
     })
 
     document.getElementById('nextDate').addEventListener('click', () => {
-        const dayObj = paramDate() || dayjs();
+        let dayObj = paramDate() || dayjs();
         dayObj = dayObj.add(1, 'day');
+        const url = new URL(location.href);
+        const searchParams = url.searchParams;
         searchParams.set(year.name, dayObj.year())
         searchParams.set(month.name, dayObj.month() + 1);
         searchParams.set(day.name, dayObj.date());
@@ -67,8 +69,10 @@ if (year) {
     })
 
     document.getElementById('prevDate').addEventListener('click', () => {
-        const dayObj = paramDate() || dayjs();
+        let dayObj = paramDate() || dayjs();
         dayObj = dayObj.add(-1, 'day');
+        const url = new URL(location.href);
+        const searchParams = url.searchParams;
         searchParams.set(year.name, dayObj.year())
         searchParams.set(month.name, dayObj.month() + 1);
         searchParams.set(day.name, dayObj.date());
@@ -79,6 +83,5 @@ if (year) {
     if (todayElem) {
         const dayObj = paramDate() || dayjs();
         todayElem.innerText = dayObj.format('YYYY/MM/DD')
-        console.log(todayElem.innerText)
     }
 }
