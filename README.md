@@ -15,12 +15,13 @@ sqlite3
 # .envをコピーして作成
 cp example.env .env
 
-# 依存ファイルを取得
-yarn
+# 依存関係解決
+yarn install
 # start server
 yarn dev
 ```
 
+3000ポートに立ち上る
 
 本番での start server
 ```bash

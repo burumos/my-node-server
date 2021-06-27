@@ -41,10 +41,13 @@ const nicoService = function() {}
 nicoService.fetchUtau = async (dateString) => {
     const fromDate = dayjs(dateString).startOf('day').toISOString();
     const toDate = dayjs(dateString).endOf('day').toISOString();
-    const url = getUrl('utauオリジナル OR utauカバー', 10, {
+    const url = getUrl('utauオリジナル OR utauカバー', 30, {
         startTime: {
             gte: fromDate,
             lte: toDate,
+        },
+        viewCounter: {
+            gte: 300,
         },
     }, 'tags', 'viewCounter');
     const options = { url, method: 'GET', json: true};
@@ -68,10 +71,13 @@ nicoService.fetchUtau = async (dateString) => {
 nicoService.fetchVocaloid = async (dateString) => {
     const fromDate = dayjs(dateString).startOf('day').toISOString();
     const toDate = dayjs(dateString).endOf('day').toISOString();
-    const url = getUrl('VOCALOID オリジナル', 10, {
+    const url = getUrl('VOCALOID オリジナル', 30, {
         startTime: {
             gte: fromDate,
             lte: toDate,
+        },
+        viewCounter: {
+            gte: 3000,
         },
     }, 'tags', 'viewCounter');
     const options = { url, method: 'GET', json: true};
