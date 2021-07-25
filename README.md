@@ -12,6 +12,9 @@ sqlite3
 .open --new data.db
 .exit
 
+# create tables
+cat ./tables/nico_games.sql | sqlite3 data.db
+
 # .envをコピーして作成
 cp example.env .env
 
