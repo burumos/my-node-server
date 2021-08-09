@@ -3,6 +3,21 @@ const dayjs = require('dayjs');
 const router = express.Router();
 const nicoService = require('../servives/nico');
 
+const beforeRender = function(req, res, next) {
+    const render = res.render;
+    res.render = (view, options = {}, callback) => {
+        if (typeof options !== 'object') {
+            return render.call(res, view, options, callback);
+        }
+
+        if (!options.hasOwnProperty('originalUrl')) {
+            options.originalUrl = req.originalUrl;
+        }
+        render.call(res, view, options, callback);
+    }
+    next();
+};
+router.use(beforeRender);
 
 /**
  * controller

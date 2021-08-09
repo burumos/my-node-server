@@ -1,0 +1,10 @@
+mixin link(name, href)
+  - if (originalUrl !== href)
+    li.item
+      a(href= href)= name
+
+div
+  ul.list
+    +link('games', '/nico/games')
+    +link('vocaloid', '/nico/vocaloid')
+    +link('utau', '/nico/utau')

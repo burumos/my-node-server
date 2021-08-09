@@ -2,12 +2,7 @@ extends ../layout
 
 block content
   h1= title
-  div
-    ul.list
-      li.item
-          a(href='/nico/games') games
-      li.item
-          a(href='/nico/utau') utau
+  include nav.pug
 
   div
     p#today-display
