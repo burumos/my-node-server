@@ -124,4 +124,9 @@ nicoService.fetchGame = async () => {
     return afterProcess(list);
 }
 
+nicoService.fetchSearch = async (keyword, limit, minimumView) => {
+    const list = await nicoService.fetchByKeyword(keyword, limit, minimumView);
+    return afterProcess(list);
+}
+
 module.exports = nicoService;

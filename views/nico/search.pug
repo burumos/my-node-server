@@ -1,0 +1,52 @@
+extends ../layout
+
+block content
+  h1= title
+  include nav.pug
+
+  form(method='get')#nico-search-form
+    div.word
+        span.label words
+        input(name='q', type='text' value=query.word)
+    div.limit
+        span.label limit
+        input(name='limit' type='number' value=query.limit)
+    div.minimumView
+        span.label minimum view
+        input(name='minimumView' type='number' value=query.minimumView)
+    div
+        button(type='submit') 検索
+        button#nico-search-save(type='button') 保存
+
+    div#nico-search-words
+        div#nico-search-words-format.hidden
+            div.row
+                span word=
+                span.word
+                span limit=
+                span.limit
+                span mimum view=
+                span.minimumView
+                button.delete(type='button') 削除
+
+  div.table
+    div.row
+      div.column.thumbnail thumbnail
+      div.column.title title
+      div.column.viewCounter viewCounter
+      div.column.startTime startTime
+      dav.column.tags tags
+    each row in list
+      div.row
+        div.column.thumbnail
+          a(href= row.url, target='_blank')
+            img(src= row.thumbnailUrl)
+        div.column.title
+          a(href= row.url, target='_blank')= row.title
+        div.column.viewCounter= row.viewCounter
+        div.column.startTime= row.startTime
+        div.column.tags= row.tags
+
+    script(defer, src='/javascripts/nico-search.js')
+
+

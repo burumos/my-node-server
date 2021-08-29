@@ -6,6 +6,9 @@ body
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif
   box-sizing: border-box
 
+.hidden
+  display: none !important
+
 a
   color: #00B7FF
 
@@ -42,3 +45,29 @@ form.selectDate
   input[type='submit'], input[type='button']
     height: 3em
     margin-right: 0.7em
+
+// nico/search
+#nico-search-form
+  .word,
+  .limit,
+  .minimumView
+    .label
+      min-width: 150px
+      display: inline-block
+      margin-bottom: 10px
+  button
+    margin: 5px 20px
+    font-size: 1rem
+
+#nico-search-words
+  margin: 20px 0 20px 30%
+  .row
+    display: inline-block
+    border: solid 1px grey
+    padding-left: 10px
+  .word,
+  .limit,
+  .minimumView
+    margin-right: 10px
+    margin-bottom: 5px
+    width: 500px

@@ -6,6 +6,9 @@ body {
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
   box-sizing: border-box; }
 
+.hidden {
+  display: none !important; }
+
 a {
   color: #00B7FF; }
 
@@ -35,5 +38,29 @@ form.selectDate {
   form.selectDate input[type='submit'], form.selectDate input[type='button'] {
     height: 3em;
     margin-right: 0.7em; }
+
+#nico-search-form .word .label,
+#nico-search-form .limit .label,
+#nico-search-form .minimumView .label {
+  min-width: 150px;
+  display: inline-block;
+  margin-bottom: 10px; }
+
+#nico-search-form button {
+  margin: 5px 20px;
+  font-size: 1rem; }
+
+#nico-search-words {
+  margin: 20px 0 20px 30%; }
+  #nico-search-words .row {
+    display: inline-block;
+    border: solid 1px grey;
+    padding-left: 10px; }
+  #nico-search-words .word,
+  #nico-search-words .limit,
+  #nico-search-words .minimumView {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    width: 500px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -31,6 +31,24 @@ router.get('/games', async (req, res, next) => {
     });
 })
 
+router.get('/search', async (req, res, next) => {
+    const word = req.query.q ?? '';
+    const limit = (50 >= req.query?.limit && req.query?.limit > 0) ? req.query.limit : 10;
+    const minimumView = (req.query?.minimumView > 0) ? req.query.minimumView : 100;
+    let list = (word.length > 0)
+        ? await nicoService.fetchSearch(word, limit, minimumView)
+        : [];
+    res.render('nico/search', {
+        title: 'ニコニコ動画検索',
+        query: {
+            word,
+            limit,
+            minimumView
+        },
+        list
+    });
+});
+
 router.get('/vocaloid', async (req, res, next) => {
     const today = dayjs();
     let list = await nicoService.fetchVocaloid(
