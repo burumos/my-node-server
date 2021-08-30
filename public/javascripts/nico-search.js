@@ -21,7 +21,7 @@ nicoSearch.appendRow = (word, limit, minimumView) => {
         row.remove();
     });
     newRow.querySelector('.row').addEventListener('click', e => {
-        const data = e.target.parentNode.dataset;
+        const data = e.currentTarget.parentNode.dataset;
         const form = document.querySelector('#nico-search-form');
         form.querySelector('input[name="q"]').value = data.word;
         form.querySelector('input[name="limit"]').value = data.limit;
