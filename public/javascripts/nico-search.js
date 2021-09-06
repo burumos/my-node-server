@@ -20,13 +20,13 @@ nicoSearch.appendRow = (word, limit, minimumView) => {
         nicoSearch.delete(row.dataset.word, row.dataset.limit, row.dataset.minimumView);
         row.remove();
     });
-    newRow.querySelector('.row').addEventListener('click', e => {
-        const data = e.currentTarget.parentNode.dataset;
+    newRow.querySelector('.search').addEventListener('click', e => {
+        const data = e.currentTarget.closest('.row').parentNode.dataset;
         const form = document.querySelector('#nico-search-form');
         form.querySelector('input[name="q"]').value = data.word;
         form.querySelector('input[name="limit"]').value = data.limit;
         form.querySelector('input[name="minimumView"]').value = data.minimumView;
-
+        form.submit();
     })
 
     return newRow;

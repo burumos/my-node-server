@@ -51,7 +51,7 @@ form.selectDate {
   font-size: 1rem; }
 
 #nico-search-words {
-  margin: 20px 0 20px 30%; }
+  margin: 20px 0 20px 0; }
   #nico-search-words .row {
     display: inline-block;
     border: solid 1px grey;
