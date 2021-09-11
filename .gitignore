@@ -105,3 +105,4 @@ dist
 
 data.db
 *.code-workspace
+public/stylesheets/*.map
