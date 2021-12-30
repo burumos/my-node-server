@@ -22,8 +22,6 @@ async function process() {
     data = data.concat(await nicoService.fetchByKeyword('格ゲー淫夢', 5, 500));
     await wait(500);
     data = data.concat(await nicoService.fetchByKeyword('ets2 -MMD', 5, 100));
-    await wait(500);
-    data = data.concat(await nicoService.fetchByKeyword('ats -MMD', 5, 100));
 
     data = data.sort((r1, r2) => {
         return r1.startTime >= r2.startTime ? -1 : 1;
